@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     03/07/2013 01:04:58 p.m.                     */
+/* Created on:     04/07/2013 10:08:40 a.m.                     */
 /*==============================================================*/
 
 
@@ -12,6 +12,8 @@ drop table if exists CLIENTE_NATURAL;
 
 drop table if exists COMPROBANTE_DE_PAGO;
 
+drop table if exists COMPROBANTE_DE_PAGO_SERVICIO;
+
 drop table if exists DESCUENTO;
 
 drop table if exists ESTADO_DE_HABITACION;
@@ -22,11 +24,9 @@ drop table if exists HABITACION;
 
 drop table if exists HOTEL;
 
-drop table if exists RELATIONSHIP_7;
-
-drop table if exists RELATIONSHIP_9;
-
 drop table if exists RESERVA;
+
+drop table if exists RESERVA_HABITACION;
 
 drop table if exists SERVICIO;
 
@@ -93,6 +93,16 @@ create table COMPROBANTE_DE_PAGO
 );
 
 /*==============================================================*/
+/* Table: COMPROBANTE_DE_PAGO_SERVICIO                          */
+/*==============================================================*/
+create table COMPROBANTE_DE_PAGO_SERVICIO
+(
+   IDCOMPROBANTEPAGO    int not null,
+   IDSERVICIO           int not null,
+   primary key (IDCOMPROBANTEPAGO, IDSERVICIO)
+);
+
+/*==============================================================*/
 /* Table: DESCUENTO                                             */
 /*==============================================================*/
 create table DESCUENTO
@@ -149,26 +159,6 @@ create table HOTEL
 );
 
 /*==============================================================*/
-/* Table: RELATIONSHIP_7                                        */
-/*==============================================================*/
-create table RELATIONSHIP_7
-(
-   IDCOMPROBANTEPAGO    int not null,
-   IDSERVICIO           int not null,
-   primary key (IDCOMPROBANTEPAGO, IDSERVICIO)
-);
-
-/*==============================================================*/
-/* Table: RELATIONSHIP_9                                        */
-/*==============================================================*/
-create table RELATIONSHIP_9
-(
-   IDRESERVA            int not null,
-   IDHABITACION         int not null,
-   primary key (IDRESERVA, IDHABITACION)
-);
-
-/*==============================================================*/
 /* Table: RESERVA                                               */
 /*==============================================================*/
 create table RESERVA
@@ -179,6 +169,16 @@ create table RESERVA
    FECHALLEGADA         date,
    FECHASALIDA          date,
    primary key (IDRESERVA)
+);
+
+/*==============================================================*/
+/* Table: RESERVA_HABITACION                                    */
+/*==============================================================*/
+create table RESERVA_HABITACION
+(
+   IDRESERVA            int not null,
+   IDHABITACION         int not null,
+   primary key (IDRESERVA, IDHABITACION)
 );
 
 /*==============================================================*/
@@ -227,6 +227,12 @@ alter table COMPROBANTE_DE_PAGO add constraint FK_RELATIONSHIP_10 foreign key (I
 alter table COMPROBANTE_DE_PAGO add constraint FK_RELATIONSHIP_5 foreign key (IDRESERVA)
       references RESERVA (IDRESERVA) on delete restrict on update restrict;
 
+alter table COMPROBANTE_DE_PAGO_SERVICIO add constraint FK_RELATIONSHIP_8 foreign key (IDCOMPROBANTEPAGO)
+      references COMPROBANTE_DE_PAGO (IDCOMPROBANTEPAGO) on delete restrict on update restrict;
+
+alter table COMPROBANTE_DE_PAGO_SERVICIO add constraint FK_RELATIONSHIP_9 foreign key (IDSERVICIO)
+      references SERVICIO (IDSERVICIO) on delete restrict on update restrict;
+
 alter table HABITACION add constraint FK_RELATIONSHIP_1 foreign key (IDESTADOHABITACION)
       references ESTADO_DE_HABITACION (IDESTADOHABITACION) on delete restrict on update restrict;
 
@@ -236,21 +242,15 @@ alter table HABITACION add constraint FK_RELATIONSHIP_2 foreign key (IDTIPOHABIT
 alter table HABITACION add constraint FK_RELATIONSHIP_3 foreign key (IDHOTEL)
       references HOTEL (IDHOTEL) on delete restrict on update restrict;
 
-alter table RELATIONSHIP_7 add constraint FK_RELATIONSHIP_8 foreign key (IDCOMPROBANTEPAGO)
-      references COMPROBANTE_DE_PAGO (IDCOMPROBANTEPAGO) on delete restrict on update restrict;
-
-alter table RELATIONSHIP_7 add constraint FK_RELATIONSHIP_9 foreign key (IDSERVICIO)
-      references SERVICIO (IDSERVICIO) on delete restrict on update restrict;
-
-alter table RELATIONSHIP_9 add constraint FK_RELATIONSHIP_11 foreign key (IDRESERVA)
-      references RESERVA (IDRESERVA) on delete restrict on update restrict;
-
-alter table RELATIONSHIP_9 add constraint FK_RELATIONSHIP_12 foreign key (IDHABITACION)
-      references HABITACION (IDHABITACION) on delete restrict on update restrict;
-
 alter table RESERVA add constraint FK_RELATIONSHIP_4 foreign key (IDESTADO)
       references ESTADO_DE_RESERVA (IDESTADO) on delete restrict on update restrict;
 
 alter table RESERVA add constraint FK_RELATIONSHIP_7 foreign key (IDCLIENTE)
       references CLIENTE (IDCLIENTE) on delete restrict on update restrict;
+
+alter table RESERVA_HABITACION add constraint FK_RELATIONSHIP_11 foreign key (IDRESERVA)
+      references RESERVA (IDRESERVA) on delete restrict on update restrict;
+
+alter table RESERVA_HABITACION add constraint FK_RELATIONSHIP_12 foreign key (IDHABITACION)
+      references HABITACION (IDHABITACION) on delete restrict on update restrict;
 

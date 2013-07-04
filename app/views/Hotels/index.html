@@ -1,15 +1,15 @@
 #{extends 'main.html' /}
 #{set title:'Search' /}
 
-<h1>Search Hotels</h1>
+<h1>Buscar Hoteles</h1>
 
 <p>
     <input type="text" id="search" size="30">
-    <input type="submit" id="submit" value="Find Hotels">
+    <input type="submit" id="submit" value="Hallar hotel">
 
     <br>
 
-    Maximum results: 
+    Número de resultados: 
     <select id="size">
         <option value="5">5</option>
         <option value="10">10</option>
@@ -65,24 +65,24 @@
     
 </script>
 
-<h1>Current Hotel Bookings</h1>
+<h1>Reserva Actual</h1>
 
 #{ifnot bookings}
     <p>
-        No Bookings Found
+        No existe reserva
     </p>
 #{/ifnot}
 #{else}
    <table>
        <thead>
            <tr>
-               <th>Name</th>
-               <th>Address</th>
-               <th>City, State</th>
-               <th>Check in</th>
-               <th>Check out</th>
-               <th>Confirmation number</th>
-               <th>Action</th>
+               <th>Nombre</th>
+               <th>Dirección</th>
+               <th>Ciudad, Estado</th>
+               <th>Inicio</th>
+               <th>Salida</th>
+               <th>Numero Confirmación</th>
+               <th>Acción</th>
            </tr>
        </thead>
        <tbody>

@@ -1,47 +1,47 @@
 #{extends 'main.html' /}
 #{set title:'Confirm ' + hotel.name + ' booking' /}
 
-<h1>Confirm hotel booking</h1>
+<h1>Confirmar reserva de hotel</h1>
 
 #{form @confirmBooking(hotel.id)}
     <p>
-        <strong>Name:</strong> ${hotel.name}
+        <strong>Nombre:</strong> ${hotel.name}
     </p>
     <p>
-        <strong>Address:</strong> ${hotel.address}
+        <strong>Dirección</strong> ${hotel.address}
     </p>
     <p>
-        <strong>City:</strong> ${hotel.city}
+        <strong>Ciudad:</strong> ${hotel.city}
     </p>
     <p>
-        <strong>State:</strong> ${hotel.state}
+        <strong>Estado:</strong> ${hotel.state}
     </p>
     <p>
-        <strong>Zip:</strong> ${hotel.zip}
+        <strong>Codigo Postal:</strong> ${hotel.zip}
     </p>
     <p>
-        <strong>Country:</strong> ${hotel.country}
+        <strong>País:</strong> ${hotel.country}
     </p>
     <p>
-        <strong>Nightly rate:</strong> ${hotel.price}
+        <strong>Precio por noche:</strong> ${hotel.price}
     </p>
     <p>
-        <strong>Beds:</strong> ${booking.beds}
+        <strong>Camas:</strong> ${booking.beds}
         <input type="hidden" name="booking.beds" value="${booking.beds}">
     </p>
     <p>
         <strong>Total:</strong> ${booking.total.formatCurrency('USD')}
     </p>
     <p>
-        <strong>Check in date:</strong> ${booking.checkinDate.format('yyyy-MM-dd')}
+        <strong>Inicio:</strong> ${booking.checkinDate.format('yyyy-MM-dd')}
         <input type="hidden" name="booking.checkinDate" value="${booking.checkinDate.format('yyyy-MM-dd')}">
     </p>
     <p>
-        <strong>Check out date:</strong> ${booking.checkoutDate.format('yyyy-MM-dd')}
+        <strong>Salida:</strong> ${booking.checkoutDate.format('yyyy-MM-dd')}
         <input type="hidden" name="booking.checkoutDate" value="${booking.checkoutDate.format('yyyy-MM-dd')}">
     </p>
     <p>
-        <strong>Credit card #:</strong> ${booking.creditCard}
+        <strong>Tarjeta crédito #:</strong> ${booking.creditCard}
         <input type="hidden" name="booking.creditCard" value="${booking.creditCard}">
         <input type="hidden" name="booking.creditCardName" value="${booking.creditCardName}">
         <input type="hidden" name="booking.creditCardExpiryMonth" value="${booking.creditCardExpiryMonth}">

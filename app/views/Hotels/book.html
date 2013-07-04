@@ -11,40 +11,40 @@
 
 #{form @confirmBooking(hotel.id)}
     <p>
-        <strong>Name:</strong> ${hotel.name}
+        <strong>Nombre:</strong> ${hotel.name}
     </p>
     <p>
-        <strong>Address:</strong> ${hotel.address}
+        <strong>Dirección:</strong> ${hotel.address}
     </p>
     <p>
-        <strong>City:</strong> ${hotel.city}
+        <strong>Ciudad:</strong> ${hotel.city}
     </p>
     <p>
-        <strong>State:</strong> ${hotel.state}
+        <strong>Estado:</strong> ${hotel.state}
     </p>
     <p>
-        <strong>Zip:</strong> ${hotel.zip}
+        <strong>Código postal:</strong> ${hotel.zip}
     </p>
     <p>
-        <strong>Country:</strong> ${hotel.country}
+        <strong>País:</strong> ${hotel.country}
     </p>
     <p>
-        <strong>Nightly rate:</strong> ${hotel.price}
+        <strong>Precio por noche:</strong> ${hotel.price}
     </p>
     #{field 'booking.checkinDate'}
         <p class="${field.errorClass}">
-            <strong>Check In Date:</strong> <input type="text" size="10" name="${field.name}" class="datepicker" value="${booking?.checkinDate?.format('yyyy-MM-dd')}"> *
+            <strong>Desde:</strong> <input type="text" size="10" name="${field.name}" class="datepicker" value="${booking?.checkinDate?.format('yyyy-MM-dd')}"> *
             <span class="error">${field.error}</span>
         </p>
     #{/field}
     #{field 'booking.checkoutDate'}
         <p class="${field.errorClass}">
-            <strong>Check Out Date:</strong> <input type="text" size="10" name="${field.name}" class="datepicker" value="${booking?.checkoutDate?.format('yyyy-MM-dd')}"> *
+            <strong>Hasta:</strong> <input type="text" size="10" name="${field.name}" class="datepicker" value="${booking?.checkoutDate?.format('yyyy-MM-dd')}"> *
             <span class="error">${field.error}</span>
         </p>
     #{/field}
     <p>
-        <strong>Room preference:</strong> 
+        <strong>Preferencias de habitación:</strong> 
         #{select 'booking.beds', value:booking?.beds}
             #{option 1}One king-size bed#{/option}
             #{option 2}Two double beds#{/option}
@@ -52,7 +52,7 @@
         #{/select}
     </p>
     <p>
-        <strong>Smoking preference:</strong> 
+        <strong>Preferencias de fumador:</strong> 
         <input type="radio" name="booking.smoking" value="true" ${booking?.smoking ? 'checked' : ''}> Smoking
         <input type="radio" name="booking.smoking" value="false" ${booking?.smoking ? '' : 'checked'}> Non smoking
     </p>
@@ -69,7 +69,7 @@
         </p>
     #{/field}
     <p>
-        <strong>Credit Card Expiry:</strong> 
+        <strong>Caducidad tarjeta credito:</strong> 
         #{select 'booking.creditCardExpiryMonth', value:booking?.creditCardExpiryMonth}
             #{option 1}Jan#{/option}
             #{option 2}Feb#{/option}

@@ -62,9 +62,25 @@ a {
 #header #options {
     position: absolute;
     right: 10px;
-    top: 13px;
+    top: -1px;
     font-size: 80%;
     color: #eee;
+}
+
+#header #con {
+    position: absolute;
+    background-color:#333;
+    left: 20px;
+    top: 50px;
+    padding:6px;
+    font-size: 80%;
+    color: #eee;
+    font-weight:bold;
+    z-index:1;
+    filter:alpha(opacity=85);
+    float:left;
+    -moz-opacity:.85;
+    opacity:.85;
 }
 
 #header #options a {
@@ -172,4 +188,57 @@ form .buttons {
     font-size: 70%;
     border-top: 1px dotted #ccc;
     text-align: center;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+/* Styles */
+}
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-width : 321px) {
+/* Styles */
+}
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (max-width : 320px) {
+/* Styles */
+}
+/* iPads (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+/* Styles */
+}
+/* iPads (landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape) {
+/* Styles */
+}
+/* iPads (portrait) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+/* Styles */
+}
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1224px) {
+/* Styles */
+}
+/* Large screens ----------- */
+@media only screen
+and (min-width : 1824px) {
+/* Styles */
+}
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
 }

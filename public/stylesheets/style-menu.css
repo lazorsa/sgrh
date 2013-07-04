@@ -1,0 +1,46 @@
+* {
+list-style:none;
+text-decoration:none;
+}
+.nav > li {
+float:left;
+}
+
+.nav li a {
+background:#333;
+display:block;
+padding: 8px 32px;
+}
+
+.nav li .flecha{
+font-size: 9px;
+padding-left: 6px;
+display: none;
+}
+
+.nav li a:not(:last-child) .flecha {
+display: inline;
+}
+
+.nav li a:hover {
+background:#0fbfc6;
+}
+
+.nav li {
+position:relative;
+}
+
+.nav li ul {
+display:none;
+position:absolute;
+min-width:140px;
+}
+
+.nav li:hover > ul {
+display:block;
+}
+
+.nav li ul li ul {
+right:-140px;
+top:0;
+}

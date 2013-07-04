@@ -5,6 +5,7 @@
         <title>#{get 'title' /}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=${_response_encoding}">
         <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/main.css'}">
+        <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/style-menu.css'}">
         #{get 'moreStyles' /}
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
         <script src="@{'/public/javascripts/jquery-1.3.2.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
@@ -14,20 +15,27 @@
     <body>
         
         <div id="header">
-            <h1>Sistema de Gestión de Reserva Hotelera</h1>
+            <h1>Sistema de Gestión Reserva Hotelera</h1>
             #{if user?.id}
-                <div id="options">
-                    Conectado como ${user.username}
-                    |
-                    <a href="@{Hotels.index()}">Buscar</a>
-                    |
-                    <a href="@{Hotels.settings()}">Configuración</a>
-                    |
-                    <a href="@{Application.logout()}">Salir</a>
-                </div>
+            <div id="options">                
+                <ul class="nav">
+                    <li><a href="@{index()}">Hoteles</a></li>
+                    <li><a href="#">Gestión<span class="flecha">&#9660;</a>
+                        <ul class="nav">
+                            <li><a href="@{Hotels.settings()}">Configuración</a></li>
+                            <li><a href="#">Realizar Reserva</a></li>                            
+                            <li><a href="#">Gestión de Reserva</a></li>
+                            <li><a href="#">Tomar Reserva</a></li>
+                            <li><a href="#">Registrar Habitación</a></li>
+                        </ul> 
+                    </li>
+                    <li><a href="@{Application.logout()}">Salir</a></li>
+                </ul>                
+            </div>
+            <div id="con">Conectado como ${user.username}</div>
             #{/if}
         </div>
-        
+
         <div id="content">
             #{if flash.error}
                 <p class="fError">

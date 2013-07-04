@@ -55,7 +55,7 @@ public class Application extends Controller {
         User user = User.find("byUsernameAndPassword", username, password).first();
         if(user != null) {
             session.put("user", user.username);
-            flash.success("Welcome, " + user.name);
+            flash.success("Bienvenido, " + user.name);
             Hotels.index();         
         }
         // Oops

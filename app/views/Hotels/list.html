@@ -2,11 +2,11 @@
     <table>
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Address</th>
-                <th>City, State</th>
-                <th width="8%">Zip</th>
-                <th width="13%">Action</th>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Ciudad, Estado</th>
+                <th width="8%">Codigo postal</th>
+                <th width="13%">Acción</th>
             </tr>
         </thead>
         <tbody>
@@ -17,19 +17,19 @@
                     <td>${hotel.city}, ${hotel.state}, ${hotel.country}</td>
                     <td>${hotel.zip}</td>
                     <td>
-                        <a href="@{show(hotel.id)}">View Hotel</a>
+                        <a href="@{show(hotel.id)}">Ver Hotel</a>
                     </td>
                 </tr>
             #{/list}
         </tbody>
     </table>
     <p>
-        <a id="nextPage" href="${page+1}">More results</a>
+        <a id="nextPage" href="${page+1}">Mas resultados</a>
     </p>
 #{/if}
 
 #{else}
     <p>
-        No more results
+        No existen más resultados
     </p>
 #{/else}      

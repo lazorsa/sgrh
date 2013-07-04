@@ -13,7 +13,7 @@ public class Hotels extends Application {
     @Before
     static void checkUser() {
         if(connected() == null) {
-            flash.error("Please log in first");
+            flash.error("Por favor identifíquese primero");
             Application.index();
         }
     }
